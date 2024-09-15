@@ -1,12 +1,12 @@
 import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
-  website: "https://yamen.dev/", // replace this with your deployed domain
+  website: "https://beta.yamen.dev/", // replace this with your deployed domain
   author: "Yamen Sharaf",
   profile: "https://yamen.dev/",
   desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
   title: "yamen.dev",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "favicon.png",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 3,
