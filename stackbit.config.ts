@@ -6,7 +6,7 @@ export default defineStackbitConfig({
   stackbitVersion: "~0.6.0",
   contentSources: [
     new GitContentSource({
-      rootPath: __dirname,
+      rootPath: `${__dirname}/src`,
       contentDirs: ["content"],
       models: [
         {
@@ -15,7 +15,7 @@ export default defineStackbitConfig({
           urlPath: "/{slug}",
           filePath: "content/pages/{slug}.json",
           fields: [{ name: "title", type: "string", required: true }]
-        }
+        },
       ],
       assetsConfig: {
         referenceType: "static",
