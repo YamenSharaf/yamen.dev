@@ -1,6 +1,9 @@
 {
   "name": "astro-paper",
   "version": "4.4.0",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "dev": "tinacms dev -c \"astro dev\"",
     "start": "astro dev",
