@@ -13,7 +13,7 @@ export default defineConfig({
   // Get this from tina.io
   clientId: process.env.TINA_CMS_CLIENT_ID || null,
   // Get this from tina.io
-  token: null,
+  token: process.env.TINA_CMS_TOKEN || null,
 
   build: {
     outputFolder: "admin",
