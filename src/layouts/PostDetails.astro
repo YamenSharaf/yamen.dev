@@ -3,6 +3,7 @@ import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Tag from "@components/Tag.astro";
+import CommentsSection from "@components/GitHubComments.astro";
 import Datetime from "@components/Datetime";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
@@ -94,21 +95,7 @@ const layoutProps = {
 
       <ShareLinks />
     </div>
-    <script
-      src="https://giscus.app/client.js"
-      data-repo="YamenSharaf/yamen.dev"
-      data-repo-id="R_kgDOMyFPVw"
-      data-category="Announcements"
-      data-category-id="DIC_kwDOMyFPV84CijJj"
-      data-mapping="pathname"
-      data-strict="0"
-      data-reactions-enabled="1"
-      data-emit-metadata="0"
-      data-input-position="bottom"
-      data-theme="preferred_color_scheme"
-      data-lang="en"
-      crossorigin="anonymous"
-      async></script>
+    <CommentsSection />
   </main>
   <Footer />
 </Layout>
