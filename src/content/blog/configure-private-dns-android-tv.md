@@ -1,9 +1,10 @@
 ---
-author: Sat Naing
-pubDatetime: 2022-02-19T15:22:00Z
-modDatetime: 2024-09-15T09:12:47.400Z
 title: Configuring Private DNS on Android TV
+description: Step-by step guide to configuring Private DNS on Android TV
+author: Yamen Sharaf
 slug: configure-private-dns-android-tv
+pubDatetime: 2022-02-19T15:22:00.000Z
+modDatetime: 2024-09-15T09:12:47.400Z
 featured: true
 draft: false
 tags:
@@ -11,7 +12,6 @@ tags:
   - Android TV
   - DNS Over TLS
   - Private DNS
-description: Step-by step guide to configuring Private DNS on Android TV
 ---
 
 If you're concerned about online privacy and security, setting up private DNS settings on your Android TV can be an effective way to enhance your experience. Although these settings are hidden by default, they do exist under the hood and can be accessed using the Android Debug Bridge (ADB).
