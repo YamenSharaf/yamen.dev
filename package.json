@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "tinacms dev -c \"astro dev\"",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "npx tinacms build --local --skip-cloud-checks & sleep 4 && astro check && astro build",
     "preview": "astro preview",
     "sync": "astro sync",
     "astro": "astro",
