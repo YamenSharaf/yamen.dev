@@ -22,7 +22,7 @@ The best way to get in touch with me is to email [hi@yamen.dev](mailto:hi@yamen.
 
 ## Tools
 
-> This is a space where I share my favorite tools that I use every day for development and just day-to-day productivity
+This is a space where I share my favorite tools that I use every day for development and just day-to-day productivity
 
 I rely on a **MacBook Pro** (M3 Pro) and an Android phone (**Samsung Galaxy S23**).
 
