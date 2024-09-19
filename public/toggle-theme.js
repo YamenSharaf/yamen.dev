@@ -43,6 +43,9 @@ function reflectPreference() {
     document
       .querySelector("meta[name='theme-color']")
       ?.setAttribute("content", bgColor);
+    document
+      .querySelector("comentario-comments")
+      ?.setAttribute("theme", themeValue);
   }
 }
 
