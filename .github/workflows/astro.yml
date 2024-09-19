@@ -25,6 +25,9 @@ concurrency:
   cancel-in-progress: false
 
 env:
+  TINA_CMS_CLIENT_ID: ${{ secrets.TINA_CMS_CLIENT_ID }}
+  TINA_CMS_TOKEN: ${{ secrets.TINA_CMS_TOKEN }}
+  TINA_SEARCH_TOKEN: ${{ secrets.TINA_SEARCH_TOKEN }}
   BUILD_PATH: "." # default value when not using subfolders
   # BUILD_PATH: subfolder
 
