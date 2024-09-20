@@ -1,4 +1,5 @@
 import type { Site, SocialObjects } from "./types";
+import type { GiscusProps } from "@giscus/react";
 
 export const SITE: Site = {
   website: "https://yamen.dev/", // replace this with your deployed domain
@@ -147,3 +148,16 @@ export const SOCIALS: SocialObjects = [
     active: false,
   },
 ];
+
+export const GISCUS: GiscusProps = {
+  repo: "YamenSharaf/yamen.dev",
+  repoId: "R_kgDOMyFPVw",
+  category: "Comments",
+  categoryId: "DIC_kwDOMyFPV84Cionj",
+  mapping: "title",
+  reactionsEnabled: "1",
+  emitMetadata: "0",
+  inputPosition: "top",
+  lang: "en",
+  loading: "lazy",
+};

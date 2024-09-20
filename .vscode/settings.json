@@ -18,5 +18,8 @@
         "titleBar.inactiveBackground": "#73627199",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#736271"
+    "peacock.color": "#736271",
+    "cSpell.words": [
+        "Giscus"
+    ]
 }

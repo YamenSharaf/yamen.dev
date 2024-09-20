@@ -8,8 +8,7 @@ import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
 import ShareLinks from "@components/ShareLinks.astro";
 import { SITE } from "@config";
-import CommentsSection from "@components/GitHubComments.astro";
-
+import GiscusComments from "@components/comments/GiscusComments.tsx";
 export interface Props {
   post: CollectionEntry<"blog">;
 }
@@ -95,8 +94,7 @@ const layoutProps = {
 
       <ShareLinks />
     </div>
-
-    <CommentsSection />
+    <GiscusComments client:only={true} />
   </main>
   <Footer />
 </Layout>
