@@ -1,6 +1,6 @@
 # yamen.dev
 
-This repository holds my personal website and blog. It's nothing serious, just a place to document things I find useful as a future reference for myself, but some content maybe useful to others.
+This repository holds my personal website and blog. It's nothing fancy, just a place to document things I find useful as a future reference for myself, but some content may be useful to others.
 
 ## Tech Stack
 - [Astro](https://astro.build/)
