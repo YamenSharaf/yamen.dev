@@ -8,6 +8,7 @@ import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
 import ShareLinks from "@components/ShareLinks.astro";
 import { SITE } from "@config";
+import CommentsSection from "@components/GitHubComments.astro";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -95,9 +96,7 @@ const layoutProps = {
       <ShareLinks />
     </div>
 
-    <comentario-comments
-      css-override="https://comentario--yamendev.netlify.app/comentario-styles.css"
-      page-id={`/posts/${slugifyStr(title)}`}></comentario-comments>
+    <CommentsSection />
   </main>
   <Footer />
 </Layout>
