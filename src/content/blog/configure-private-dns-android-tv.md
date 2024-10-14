@@ -70,10 +70,11 @@ settings put global private_dns_mode hostname
 ```shell
 settings put global private_dns_specifier one.one.one.one
 ```
-> [!WARNING]  
-> If you encounter an error executing these commands, try typing them manually.
 
 Replace `one.one.one.one` with the DNS with the DoT (DNS over TLS) address of your preferred private DNS server. **`one.one.one.one`** is for CloudFlare.
+
+> [!WARNING]  
+> If you encounter an error executing these commands, try typing them manually.
 
 ## Verify and Disconnect
 
