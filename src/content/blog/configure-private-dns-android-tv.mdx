@@ -14,7 +14,7 @@ tags:
   - Private DNS
 ---
 
-import { AlertDemo } from "@components/blog/AlertDemo.tsx";
+import { BlogAlert } from "@components/blog/BlogAlert.tsx";
 
 If you're concerned about online privacy and security, setting up private DNS settings on your Android TV can be an effective way to enhance your experience. Although these settings are hidden by default, they do exist under the hood and can be accessed using the Android Debug Bridge (ADB).
 
@@ -75,11 +75,10 @@ settings put global private_dns_specifier one.one.one.one
 
 Replace `one.one.one.one` with the DNS with the DoT (DNS over TLS) address of your preferred private DNS server. **`one.one.one.one`** is for CloudFlare.
 
-> If you encounter an error executing these commands, try typing them manually.
-
-<AlertDemo title="Heads up!">
-  If you encounter an error executing these commands, try typing them manually.
-</AlertDemo>
+<BlogAlert>
+  If you encounter an error pasting and executing these commands, try typing
+  them manually.
+</BlogAlert>
 
 ## Verify and Disconnect
 
