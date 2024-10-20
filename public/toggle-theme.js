@@ -16,19 +16,6 @@ function getPreferTheme() {
     : "light";
 }
 
-// function setCommentsTheme(themeValue) {
-//   const commentsSelector = document.querySelector(
-//     'script[data-id="giscus-comments"]'
-//   );
-//   if (commentsSelector) {
-//     const themeMap = {
-//       light: "light",
-//       dark: "purple_dark",
-//     };
-//     commentsSelector.setAttribute("theme", themeMap[themeValue]);
-//   }
-// }
-
 let themeValue = getPreferTheme();
 
 function setPreference() {
@@ -58,10 +45,6 @@ function reflectPreference() {
     document
       .querySelector("meta[name='theme-color']")
       ?.setAttribute("content", bgColor);
-    // document
-    //   .querySelector("comentario-comments")
-    //   ?.setAttribute("theme", themeValue);
-    // setCommentsTheme(themeValue);
   }
 }
 
