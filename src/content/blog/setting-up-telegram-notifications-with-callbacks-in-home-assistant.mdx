@@ -1,0 +1,77 @@
+---
+title: Setting up Home Assistant Telegram Notifications with Inline Keyboard and Callbacks.
+slug: setting-up-telegram-notifications-with-callbacks-in-home-assistant
+description: Step-by step guide to configuring Private DNS on Android TV
+author: Yamen Sharaf
+pubDatetime: 2022-10-19T15:22:00.000Z
+modDatetime: 2024-10-20T09:12:00.400Z
+featured: true
+draft: true
+tags:
+  - Home Assistant
+  - Telegram
+  - Notifications
+  - Callback
+  - Inline Keyboard
+---
+
+import { BlogAlert } from "@components/blog/BlogAlert.tsx";
+
+I'm not a Telegram user by any means, I don't use it for casual texting with friends. I don't keep up with any events or join any groups.It's not quite secure enough for that anymore anyways. However, it still is my favorite notification system for the following reasons:
+- Persistence. History stays where it is, you can go back to any message and find its date and time for future reference.
+- Richness. Telegram notifications can contain text, images, links and videos. Your text can even be formatted to look nice depending on the context.
+- Broadcast. Telegram notifications can be sent to an individual or a group, which means you can set up a notification that reaches the entire household.
+- Actionable. Notifications can be associated with actions, A notification can come with relevant action for you to take, leveraging the inline keyboard feature, which the subject of this article.
+
+In this article, I'll rebuild a favorite Home Assistant Automation of mine, it boils down to the following steps:
+
+- Detects when I'm away from home
+- Ask me if I want to turn on "Vacation Mode". In this mode, certain light automations are disabled and heating is turned off.
+- If I confirm that I am "On Vacation", the automation will proceed to turn this toggle on.
+- A subsequent message is sent confirming the action has been taken. This message will contain options which will allow me to revert the action
+
+In reality, this automation, also does the opposite when it detects that I'm back close to home, but I don't think that I need two examples of the same things. Here it is in action:
+
+![Before vacation](@assets/images/ha-telegram-callback/ha_telegram_callback_auto_before_vacation.png)
+![After vacation](@assets/images/ha-telegram-callback/ha_telegram_callback_auto_after_vacation.png)
+
+## Assumptions
+To limit the scope of this article, I'm making the following assumption about the reader:
+- You are somewhat familiar with Home Assistant automations
+- You have already set up the [Telegram integration](https://www.home-assistant.io/integrations/telegram/) and a [Telegram Bot](https://www.home-assistant.io/integrations/telegram_bot/), which is needed for this automation.
+- You have the [Proximity Integration](https://www.home-assistant.io/integrations/proximity) set up. This is not necessary since you can use whichever trigger the automation using any state that suits your particular use-case. Only needed if you want to set up this particular automation.
+
+Alright! now that we've laid down the work needed, let's break it down!
+
+## Setting up the conditions
+### Detect when I'm Away From Home
+1. In a new automation screen, let's start with our first condition using `Add condition -> Entity -> Numeric State`
+2. For our entity, I'll add my person entity from the Proximity Integration, in my case it's `person.yamen`
+3. I'll choose Above mode, and input 10000 to specify 10 kilometer as a Fixed Number.
+4. Using the overflow menu for the trigger, I'll choose `Edit ID`, this is done to keep everything organized in one automation while having multiple triggers. In the new `Trigger ID` field, I will input `on-10km-away`. You can call it anything that suits your need and naming convention.
+
+This is what I ended up with:
+![Setting up the proximity trigger](@assets/images/ha-telegram-callback/ha_automation_trigger_proximity.png)
+
+Let's move on to the second condition
+
+### Receive Telegram Callback Action
+We're still creating triggers here. This is not the "chronological" way of doing this, but I have chosen to go linearly through the automation because I think it's the right way to craft an automation when you have a solid idea in mind, if this doesn't make sense now, I promise it will in an upcoming step.
+
+1. Create a new trigger, this time `Add trigger -> Other triggers -> Manual event.
+2. In the Event type field, we'll input `telegram_callback`. This has to be this exact string.
+In the `Event data` field, we'll type `command: /set_on_vacation_on`, here you can customize what the command can be called, this is what will be triggered when you choose an action in the Telegram message.
+3. You don't need to select a user, but let's give this trigger an ID like we did with the previous trigger, from the overflow menu, `Edit ID`. Let's call this one `on-set-vacation-on-telegram-callback`.
+
+We end up with this
+![Setting up the Telegram callback trigger](@assets/images/ha-telegram-callback/ha_automation_trigger_telegram_callback.png)
+
+## Setting up Actions
+Now that we have our triggers in order, let's scroll down to the **Then do** section to create our actions
+1. We'll start with adding a building block so we can differentiate between our two triggers. `Add Building Block -> Choose`. We will set up two conditions and two actions in total corresponding to our two triggers. Let's start with the first one
+
+### First Option: Reacting to Distance from Home
+1. Expand `Option 1`. `Add condition -> Other conditions -> Triggered by`. If you did everything correctly so far, you should have two triggers available: `on-10km-away` and `on-set-vacation-on-telegram-callback`. Let's select only the first one (`on-10km-away`), and let's move on to creating our action.
+![Setting up the proximity action trigger](@assets/images/ha-telegram-callback/ha_automation_action_trigger_proximity.png)
+2. Here, I'll set up the initial Telegram message, notifying me that Home Assistant has detected that I am away from home, and prompting me to take action if needed. In the `Add action` dialog, I'll search for `Telegram bot: Send message`. If you don't see this action, it means you haven't set up your Telegram Bot integration correctly. Let's choose it.
+
