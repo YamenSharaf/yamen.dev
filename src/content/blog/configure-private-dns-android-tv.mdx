@@ -4,7 +4,7 @@ slug: configure-private-dns-android-tv
 description: Step-by step guide to configuring Private DNS on Android TV
 author: Yamen Sharaf
 pubDatetime: 2022-02-19T15:22:00.000Z
-modDatetime: 2024-10-02T09:12:47.400Z
+modDatetime: 2024-10-20T09:12:47.400Z
 featured: true
 draft: false
 tags:
@@ -100,3 +100,10 @@ adb disconnect
 There are several private DNS providers to choose from, such as Cloudflare, Google, OpenDNS, and AdGuard. However. My personal favorite is the paid DNS service [Control D](https://controld.com/).
 
 By encrypting your DNS requests, private DNS servers can help protect you from third-party tracking and censorship. Although the process of setting up private DNS settings on Android TV may seem technical, it's a worthwhile step to take for enhanced online privacy and security.
+
+<BlogAlert>
+  While most apps will respect the private DNS settings you've set including
+  system apps, some apps may not. **Netflix**, for instance, will always use
+  your router's DNS settings, so it might be beneficial to set up DNS over TLS
+  on the router level if your router supports it.
+</BlogAlert>
