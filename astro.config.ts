@@ -26,7 +26,7 @@ export default defineConfig({
         remarkCollapse,
         {
           test: "Table of contents",
-          summary: "Expand",
+          summary: "Table of Contents",
         },
       ],
     ],
