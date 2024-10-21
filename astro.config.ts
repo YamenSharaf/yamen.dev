@@ -11,9 +11,14 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
-  integrations: [tailwind({
-    applyBaseStyles: false,
-  }), react(), sitemap(), mdx()],
+  integrations: [
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    react(),
+    sitemap(),
+    mdx(),
+  ],
   markdown: {
     remarkPlugins: [
       remarkToc,
@@ -21,6 +26,7 @@ export default defineConfig({
         remarkCollapse,
         {
           test: "Table of contents",
+          summary: "Expand",
         },
       ],
     ],
