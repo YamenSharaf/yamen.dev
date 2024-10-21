@@ -9,7 +9,7 @@ import Card from "@components/Card";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SITE, SOCIALS } from "@config";
-import { Markdown } from "@astropub/md";
+import Link from "@components/html/Link.astro";
 
 const posts = await getCollection("blog");
 
@@ -24,43 +24,28 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <Header />
   <main id="main-content">
     <section id="hero">
-      <!-- <h1>Yamen Sharaf</h1>
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="rss-link"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
-          ><path
-            d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-          ></path><path
-            d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-          ></path><circle cx="6" cy="18" r="2"></circle>
-        </svg>
-        <span class="sr-only">RSS Feed</span>
-      </a> -->
       <p>
-        <Markdown
-          of=`I'm **Yamen Sharaf**, a software engineer who does mostly front-end
-        stuff and occasionally contributes to open-source projects. I writes about various things that are technical in nature. I’m interested in frontend
-        development, I dabble in self-hosting, an avid Home Assistant advocate, and I have an unhealthy obsession
-        with [productivity
-        tooling](/about).
-        
-        `
-        />
-        <Markdown
-          of=`This a space for me where I get to share anything with the world or my
-        future self.`
-        />
+        I'm <strong>Yamen Sharaf</strong>, a software engineer who does mostly
+        front-end stuff and occasionally contributes to open-source projects. I
+        write about various things that are technical in nature. I’m interested
+        in frontend development, I dabble in self-hosting, an avid Home
+        Assistant advocate, and I have an unhealthy obsession with <Link
+          href="/about">productivity tooling</Link
+        >.
+      </p>
 
-        <Markdown
-          of=`You can find me on [GitHub](https://github.com/YamenSharaf)
-        and [LinkedIn](https://twitter.com/YamenSharaf). If you’re interested in
-        hiring me, feel free to check out my [resume](/assets/files/resume.pdf).`
-        />
+      <p>
+        This is a space for me where I get to share anything with the world or
+        my future self.
+      </p>
+
+      <p>
+        You can find me on <Link href="https://github.com/YamenSharaf"
+          >GitHub</Link
+        > and <Link href="https://twitter.com/YamenSharaf">LinkedIn</Link>. If
+        you’re interested in hiring me, feel free to check out my <Link
+          href="/assets/files/resume.pdf">resume</Link
+        >.
       </p>
       {
         // only display if at least one social link is enabled

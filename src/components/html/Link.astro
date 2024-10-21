@@ -1,0 +1,17 @@
+---
+import LinkButton from "@components/LinkButton.astro";
+
+export interface Props {
+  href: string;
+  className?: string;
+}
+
+const { href, className = "" } = Astro.props;
+---
+
+<LinkButton
+  className={`underline decoration-dashed underline-offset-4 hover:text-skin-accent ${className}`}
+  href={href}
+>
+  <slot />
+</LinkButton>
