@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export function SponsorCard() {
   return (
-    <div className="my-3 flex flex-col content-center items-center rounded-md border border-solid border-pink-500 p-5">
+    <div className="mb-3 mt-8 flex flex-col content-center items-center rounded-md border border-solid border-pink-500 p-5">
       <p className="mb-3">
         If you find this article helpful, consider supporting me
       </p>
