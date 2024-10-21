@@ -9,6 +9,7 @@ import { slugifyStr } from "@utils/slugify";
 import ShareLinks from "@components/ShareLinks.astro";
 import { SITE } from "@config";
 import GiscusComments from "@components/comments/GiscusComments.tsx";
+import { SponsorCard } from "@components/blog/SponsorCard.tsx";
 export interface Props {
   post: CollectionEntry<"blog">;
 }
@@ -73,6 +74,8 @@ const layoutProps = {
       <Content />
     </article>
 
+    <SponsorCard />
+
     <ul class="my-8">
       {tags.map(tag => <Tag tag={slugifyStr(tag)} />)}
     </ul>
@@ -94,6 +97,7 @@ const layoutProps = {
 
       <ShareLinks />
     </div>
+
     <GiscusComments client:only="react" />
   </main>
   <Footer />
