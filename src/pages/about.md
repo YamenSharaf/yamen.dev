@@ -4,20 +4,20 @@ title: "About"
 ---
 
 <div class="flex">
-<div>
+<div class="w-2/3">
 
 Hey hey 👋
 
 My name is **Yamen Sharaf.**
 
+I'm a software developer, open source author, and a fan of everything technology.
+
 </div>
 <div class="w-56 ml-auto">
-  <img src="/assets/me.jpg" class="sm:w-1/2 mx-auto" alt="coding dev illustration">
+  <img src="/assets/me.jpg" class="sm:w-1/2 mx-auto rounded shadow-lg" alt="coding dev illustration">
 </div>
 
 </div>
-
-I'm a software developer, open source author, and a fan of everything technology.
 
 The best way to get in touch with me is to email [hi@yamen.dev](mailto:hi@yamen.dev). Or you can [book a video call or a phone call](https://calendly.com/yamensharaf/30-minute-call) to have a little chat.
 
