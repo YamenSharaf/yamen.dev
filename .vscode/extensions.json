@@ -1,4 +1,8 @@
 {
-  "recommendations": ["astro-build.astro-vscode"],
+  "recommendations": [
+    "astro-build.astro-vscode",
+    "tamasfe.even-better-toml",
+    "shd101wyy.markdown-preview-enhanced"
+  ],
   "unwantedRecommendations": []
 }
