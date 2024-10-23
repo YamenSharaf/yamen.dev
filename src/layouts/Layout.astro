@@ -4,6 +4,7 @@ import "@styles/globals.css";
 import { ViewTransitions } from "astro:transitions";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
+const isDeveleopment = import.meta.env.MODE === "development";
 
 export interface Props {
   title?: string;
@@ -117,7 +118,15 @@ const structuredData = {
 
     <meta name="theme-color" content="" />
 
-    <script defer src="https://analytics.yamen.dev/script.js" data-website-id="f7a33925-8088-4849-823f-1015f479413a"></script>
+    {
+      !isDeveleopment && (
+        <script
+          defer
+          src="https://analytics.yamen.dev/script.js"
+          data-website-id="f7a33925-8088-4849-823f-1015f479413a"
+        />
+      )
+    }
 
     {
       // If PUBLIC_GOOGLE_SITE_VERIFICATION is set in the environment variable,
