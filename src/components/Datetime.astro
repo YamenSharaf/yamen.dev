@@ -33,7 +33,8 @@ const datetime = dayjs(isModified ? modDatetime : pubDatetime).tz(
   postTimezone ?? config.site.timezone
 );
 
-const date = datetime.format("D MMM, YYYY");
+const date = datetime.format("MMM D, YYYY");
+const time = datetime.format("hh:mm A");
 ---
 
 <div
@@ -58,4 +59,9 @@ const date = datetime.format("D MMM, YYYY");
   >
     {date}
   </time>
+  <span aria-hidden="true">|</span>
+  <span class="sr-only">at</span>
+  <span class:list={["text-sm text-nowrap", { "sm:text-base": size === "lg" }]}>
+    {time}
+  </span>
 </div>

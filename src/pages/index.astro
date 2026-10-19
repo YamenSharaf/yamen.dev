@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
-import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
@@ -35,29 +34,11 @@ const linkClass =
     data-home-path={homePath}
     class="app-layout my-1"
   >
-    <section id="hero" class="border-border border-b pt-8 pb-6">
-      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Hey hey 👋
-      </h1>
-      <a
-        target="_blank"
-        href={`${import.meta.env.BASE_URL.replace(/\/?$/, "/")}rss.xml`}
-        class="inline-block"
-        aria-label="RSS Feed"
-        title="RSS Feed"
-      >
-        <IconRss
-          width={20}
-          height={20}
-          class="stroke-accent scale-125 stroke-3 rtl:-rotate-90"
-        />
-        <span class="sr-only">RSS Feed</span>
-      </a>
-
+    <section id="hero" class="border-border border-b pt-14 pb-6">
       <p>
-        I'm <strong>Yamen Sharaf</strong>, a software engineer who does mostly
+        I’m <strong>Yamen Sharaf</strong>, a software engineer who does mostly
         front-end stuff and occasionally contributes to open-source projects. I
-        write about various things that are technical in nature. I'm interested
+        write about various things that are technical in nature. I’m interested
         in frontend development, I dabble in self-hosting, an avid Home
         Assistant advocate, and I have an unhealthy obsession with{" "}
         <a class={linkClass} href={getRelativeLocaleUrl(locale, "about")}>
@@ -74,7 +55,7 @@ const linkClass =
         {" "}and{" "}
         <a class={linkClass} href="https://www.linkedin.com/in/yamensharaf">
           LinkedIn
-        </a>. If you're interested in hiring me, feel free to check out my{" "}
+        </a>. If you’re interested in hiring me, feel free to check out my{" "}
         <a class={linkClass} href="/assets/files/resume.pdf" target="_blank">
           resume
         </a>.
