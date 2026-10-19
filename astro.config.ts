@@ -21,6 +21,11 @@ import config from "./astro-paper.config";
 
 export default defineConfig({
   site: config.site.url,
+  // Static HTML redirects, so they work on GitHub Pages as well as Cloudflare
+  redirects: {
+    "/configuring-private-dns-on-android-tv":
+      "/posts/configure-private-dns-android-tv/",
+  },
   integrations: [
     mdx(),
     sitemap({
