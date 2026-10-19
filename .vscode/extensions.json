@@ -1,8 +1,8 @@
 {
   "recommendations": [
     "astro-build.astro-vscode",
-    "tamasfe.even-better-toml",
-    "shd101wyy.markdown-preview-enhanced"
-  ],
-  "unwantedRecommendations": []
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "dbaeumer.vscode-eslint"
+  ]
 }
