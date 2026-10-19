@@ -6,6 +6,7 @@ import IconArchive from "@/assets/icons/IconArchive.svg";
 import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
 import IconSearch from "@/assets/icons/IconSearch.svg";
 import IconRss from "@/assets/icons/IconRss.svg";
+import IconFileTypePdf from "@/assets/icons/IconFileTypePdf.svg";
 import IconMoon from "@/assets/icons/IconMoon.svg";
 import IconX from "@/assets/icons/IconX.svg";
 import LinkButton from "./LinkButton.astro";
@@ -27,6 +28,8 @@ const pathWithoutTrailingSlash =
     : relativePath;
 
 const currentPath = stripLocale(pathWithoutTrailingSlash, locale);
+
+const rssHref = `${import.meta.env.BASE_URL.replace(/\/?$/, "/")}rss.xml`;
 
 const isActive = (path: string) => {
   const currentPathArray = currentPath.split("/").filter(p => p.trim());
@@ -54,6 +57,16 @@ const isActive = (path: string) => {
       class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"
     >
       {site.title}
+    </a>
+    <a
+      target="_blank"
+      href={rssHref}
+      class="focus-outline hover:text-accent ms-2 hidden sm:inline-flex"
+      aria-label="RSS Feed"
+      title="RSS Feed"
+    >
+      <IconRss class="size-6" />
+      <span class="sr-only">RSS Feed</span>
     </a>
     <nav
       id="nav-menu"
@@ -99,9 +112,6 @@ const isActive = (path: string) => {
             {t.nav.about}
           </a>
         </li>
-        <li class="col-span-2">
-          <a href="/assets/files/resume.pdf" target="_blank">Resume</a>
-        </li>
         {
           features.showArchives && (
             <li class="col-span-2">
@@ -126,19 +136,6 @@ const isActive = (path: string) => {
             </li>
           )
         }
-        <li class="col-span-1 flex items-center justify-center">
-          <LinkButton
-            href={`${import.meta.env.BASE_URL.replace(/\/?$/, "/")}rss.xml`}
-            class:list={["focus-outline relative size-8"]}
-            title="RSS Feed"
-            aria-label="RSS Feed"
-          >
-            <IconRss
-              class="absolute top-1/2 left-1/2 size-6 -translate-x-1/2 -translate-y-1/2"
-            />
-            <span class="sr-only">RSS Feed</span>
-          </LinkButton>
-        </li>
         {
           features.search !== false && (
             <li class="col-span-1 flex items-center justify-center">
@@ -160,6 +157,34 @@ const isActive = (path: string) => {
             </li>
           )
         }
+        <li class="col-span-1 flex items-center justify-center">
+          <LinkButton
+            href="/assets/files/resume.pdf"
+            target="_blank"
+            class:list={["focus-outline relative size-8"]}
+            title="Resume"
+            aria-label="Resume"
+          >
+            <IconFileTypePdf
+              class="absolute top-1/2 left-1/2 size-6 -translate-x-1/2 -translate-y-1/2"
+            />
+            <span class="sr-only">Resume</span>
+          </LinkButton>
+        </li>
+        <li class="col-span-1 flex items-center justify-center sm:hidden">
+          <LinkButton
+            href={rssHref}
+            target="_blank"
+            class:list={["focus-outline relative size-8"]}
+            title="RSS Feed"
+            aria-label="RSS Feed"
+          >
+            <IconRss
+              class="absolute top-1/2 left-1/2 size-6 -translate-x-1/2 -translate-y-1/2"
+            />
+            <span class="sr-only">RSS Feed</span>
+          </LinkButton>
+        </li>
         {
           features.lightAndDarkMode && (
             <li class="col-span-1 flex items-center justify-center">
